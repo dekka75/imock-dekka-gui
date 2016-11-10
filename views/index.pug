@@ -1,114 +1,58 @@
-doctype html
-html
-    head
-        meta(name="viewport" content="width=device-width, initial-scale=1.0", charset='utf-8')
-        title iMock - admin
-        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
-        link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700', type='text/css')
-        link(rel='stylesheet', href='https://code.getmdl.io/1.1.3/material.orange-indigo.min.css')
-        link(rel='stylesheet', href='/public/css/style.css')
-    body
-        .mdl-layout.mdl-js-layout
-            // Footer
-            header.mdl-layout__header
-                .mdl-layout__header-row
-                    span.mdl-layout-title Virtual Services
-                    .mdl-layout-spacer
-                    nav.mdl-navigation
-                        a.mdl-navigation__link(href='#') Dashboad
-                        a.mdl-navigation__link(href='#') Viewer
-                        a.mdl-navigation__link(href='#') Virtual Services
-                        a.mdl-navigation__link(href='#') Admin
-                    // start search form
-                    .mdl-textfield.mdl-js-textfield.mdl-textfield--expandable
-                        label.mdl-button.mdl-js-button.mdl-button--icon(for='search')
-                            i.material-icons search
-                        .mdl-textfield__expandable-holder
-                            input#search.mdl-textfield__input(type='text')
-                            label.mdl-textfield__label(for='search') Search text...
-            // Mobil navigation
-            .mdl-layout__drawer
-                span.mdl-layout-title iMock
-                nav.mdl-navigation
-                    a.mdl-navigation__link(href='#') Dashboad
-                    a.mdl-navigation__link(href='#') Viewer
-                    a.mdl-navigation__link(href='#') Virtual Services
-                    a.mdl-navigation__link(href='#') About
-            // Content
-            .mdl-layout__content.mdl-color--blue-grey-900
-                .mdl-grid
-                    // List of services
-                    .mdl-cell.mdl-cell--2-col.mdl-color--blue-grey-800
-                        ul.mdl-list
+extends layout
+
+block menu
+    // Footer
+    header.mdl-layout__header
+        .mdl-layout__header-row
+            span.mdl-layout-title #{title}
+            .mdl-layout-spacer
+            nav.mdl-navigation
+                a.mdl-navigation__link(href='') Dashboad
+                a.mdl-navigation__link(href='') Viewer
+                a.mdl-navigation__link(href='') Admin             
+    // Mobil navigation
+    .mdl-layout__drawer
+        span.mdl-layout-title #{name}
+        nav.mdl-navigation
+            a.mdl-navigation__link(href='') Dashboad
+            a.mdl-navigation__link(href='') Viewer
+            a.mdl-navigation__link(href='') About
+
+block content
+    main.mdl-layout__content
+        .page-content
+            .content-grid.mdl-grid.mdl-grid--no-spacing.mdl-color--orange-50
+                .content-column.mdl-cell.mdl-cell--2-col
+                    ul.mdl-list
+                        for group in groups
                             li.mdl-list__item--two-line
                                 span.mdl-list__item-primary-content
-                                    i.material-icons.mdl-list__item-icon.mdl-color-text--white settings_applications
-                                    span.mdl-color-text--blue-grey-200 33I - eSoft
-                                    span.mdl-list__item-sub-title.mdl-color-text--blue-grey-500 carts-1
-                            li.mdl-list__item--two-line
-                                span.mdl-list__item-primary-content
-                                    i.material-icons.mdl-list__item-icon.mdl-color-text--white account_boxe
-                                    span.mdl-color-text--blue-grey-200 TRN - trinity
-                                    span.mdl-list__item-sub-title.mdl-color-text--blue-grey-500 OffresFlotte
-                            li.mdl-list__item--two-line
-                                span.mdl-list__item-primary-content
-                                    i.material-icons.mdl-list__item-icon.mdl-color-text--white settings_applications
-                                    span.mdl-color-text--blue-grey-200 M8I - pfol
-                                    span.mdl-list__item-sub-title.mdl-color-text--blue-grey-500 getLineInfo
-                    // Cards
-                    .mdl-cell.mdl-cell--10-col
-                        .cardContain
-                            .mdl-card.mdl-shadow--16dp
-                                .mdl-card__title
-                                    h2.mdl-card__title-text BEHAT
-                                .mdl-card__title
-                                    h5.mdl-card__title-text 33I - eSoft
-                                .mdl-card__supporting-text
-                                    | Path: /O2RN/33I/carts-1<br><br>
-                                    | Producers: http://10.242.98.39:2080<br><br>
-                                    | Tdr min: 100<br>
-                                    | Tdr max: 200
-                                .mdl-card__actions.mdl-card--border
-                                    a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
-                                        | View Exchange
-                                    .mdl-layout-spacer
-                                    i.material-icons settings_applications
-                                .mdl-card__menu
-                                    button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
-                                        i.material-icons account_boxe
-                            .mdl-card.mdl-shadow--4dp
-                                .mdl-card__title
-                                    h8
-                                        | M8I - pfol
-                                        br
-                                        | getLineInfo
-                            .mdl-card.mdl-shadow--4dp(style='background:#fb8c00;')
-                                .mdl-card__title
-                                    h8
-                                        | TRN - trinity
-                                        brCopyright (c) 2016 Copyright Holder All Rights Reserved.
-                                        | OffresFlottes
-                            .mdl-card.mdl-shadow--4dp
-                                .mdl-card__title
-                                    h8
-                                        | M8I - pfol
-                                        br
-                                        | getLineInfo
-                            .mdl-card.mdl-shadow--4dp(style='background:#fb8c00;')
-                                .mdl-card__title
-                                    h8
-                                        | TRN - trinity
-                                        br
-                                        | OffresFlottes
-                            .mdl-card.mdl-shadow--4dp
-                                .mdl-card__title
-                                    h8
-                                        | M8I - pfol
-                                        br
-                                        | getLineInfo
-                // MDL Mini Footer Container
-                footer.mdl-mini-footer
-                    // MDL Footer left Section
-                    .mdl-mini-footer__left-section
-                        .mdl-logo Copyright © 2016 Dekka Inc. All Rights Reserved.
-        script(src='//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js')
+                                    i.material-icons.mdl-list__item-icon dashboard
+                                    span 33I - eSoft
+                                    span.mdl-list__item-sub-title #{group}
+                .content-column.mdl-cell.mdl-cell--10-col
+                    .content-grid.mdl-grid
+                        .content-column.mdl-cell.mdl-cell--4-col.mdl-color--indigo-50
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            | Deserunt libero commodi voluptatum temporibus placeat iure excepturi aut dicta corrupti nulla sint minus ut,
+                            | quos quis nesciunt eligendi, ipsa dolore perferendis.
+                        .content-column.mdl-cell.mdl-cell--4-col.mdl-color--orange-100
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            | Deserunt libero commodi voluptatum temporibus placeat iure excepturi aut dicta corrupti nulla sint minus ut,
+                            | quos quis nesciunt eligendi, ipsa dolore perferendis.
+                        .content-column.mdl-cell.mdl-cell--4-col.mdl-color--indigo-50
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            | Deserunt libero commodi voluptatum temporibus placeat iure excepturi aut dicta corrupti nulla sint minus ut,
+                            | quos quis nesciunt eligendi, ipsa dolore perferendis.
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            | Deserunt libero commodi voluptatum temporibus placeat iure excepturi aut dicta corrupti nulla sint minus ut,
+                            | quos quis nesciunt eligendi, ipsa dolore perferendis.
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            | Deserunt libero commodi voluptatum temporibus placeat iure excepturi aut dicta corrupti nulla sint minus ut,
+                            | quos quis nesciunt eligendi, ipsa dolore perferendis.
+                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            | Deserunt libero commodi voluptatum temporibus placeat iure excepturi aut dicta corrupti nulla sint minus ut,
+                            | quos quis nesciunt eligendi, ipsa dolore perferendis.
+
+block footer
+    include scripts

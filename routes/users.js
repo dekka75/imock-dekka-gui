@@ -8,28 +8,11 @@ var router = express.Router()
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    var server = req.app.locals.server
-
-    // GET Groups
-    var options = {
-        uri: server + '/api/groups',
-        method: 'GET',
-        headers: 'application/json; charset=UTF-8',
-        timeout: 60000, // Time out : 1 * 60 * 1000
-        followRedirect: true
-    }
-
-    // Call real service
-    request(options, function (err, response, body) {
-        if (err) {} else {
-            res.set('Content-Type', 'text/xml; charset=UTF-8')
-            res.status(200)
-            res.render('users', {
-                title: 'iMock 2016'
-            })
-        }
+    res.set('Content-Type', 'text/html; charset=UTF-8')
+    res.status(200)
+    res.render('users', {
+        title: 'Express'
     })
-
 })
 
 module.exports = router
