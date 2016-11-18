@@ -3,6 +3,10 @@ html(lang="en")
     include header
     body
         .mdl-layout.mdl-js-layout
-            block menu
-            block content
-        block footer
+            include menu
+            main.mdl-layout__content
+                .page-content
+                    .content-column.mdl-cell.mdl-cell--12-col
+                        block content
+                    include footer
+        include scripts

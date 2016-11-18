@@ -1,58 +1,9 @@
 extends layout
 
-block menu
-    // Footer
-    header.mdl-layout__header
-        .mdl-layout__header-row
-            span.mdl-layout-title #{title}
-            .mdl-layout-spacer
-            nav.mdl-navigation
-                a.mdl-navigation__link(href='') Dashboad
-                a.mdl-navigation__link(href='') Viewer
-                a.mdl-navigation__link(href='') Admin             
-    // Mobil navigation
-    .mdl-layout__drawer
-        span.mdl-layout-title #{name}
-        nav.mdl-navigation
-            a.mdl-navigation__link(href='') Dashboad
-            a.mdl-navigation__link(href='') Viewer
-            a.mdl-navigation__link(href='') About
-
 block content
-    main.mdl-layout__content
-        .page-content
-            .content-grid.mdl-grid.mdl-grid--no-spacing.mdl-color--orange-50
-                .content-column.mdl-cell.mdl-cell--2-col
-                    ul.mdl-list
-                        for group in groups
-                            li.mdl-list__item--two-line
-                                span.mdl-list__item-primary-content
-                                    i.material-icons.mdl-list__item-icon dashboard
-                                    span 33I - eSoft
-                                    span.mdl-list__item-sub-title #{group}
-                .content-column.mdl-cell.mdl-cell--10-col
-                    .content-grid.mdl-grid
-                        .content-column.mdl-cell.mdl-cell--4-col.mdl-color--indigo-50
-                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                            | Deserunt libero commodi voluptatum temporibus placeat iure excepturi aut dicta corrupti nulla sint minus ut,
-                            | quos quis nesciunt eligendi, ipsa dolore perferendis.
-                        .content-column.mdl-cell.mdl-cell--4-col.mdl-color--orange-100
-                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                            | Deserunt libero commodi voluptatum temporibus placeat iure excepturi aut dicta corrupti nulla sint minus ut,
-                            | quos quis nesciunt eligendi, ipsa dolore perferendis.
-                        .content-column.mdl-cell.mdl-cell--4-col.mdl-color--indigo-50
-                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                            | Deserunt libero commodi voluptatum temporibus placeat iure excepturi aut dicta corrupti nulla sint minus ut,
-                            | quos quis nesciunt eligendi, ipsa dolore perferendis.
-                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                            | Deserunt libero commodi voluptatum temporibus placeat iure excepturi aut dicta corrupti nulla sint minus ut,
-                            | quos quis nesciunt eligendi, ipsa dolore perferendis.
-                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                            | Deserunt libero commodi voluptatum temporibus placeat iure excepturi aut dicta corrupti nulla sint minus ut,
-                            | quos quis nesciunt eligendi, ipsa dolore perferendis.
-                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                            | Deserunt libero commodi voluptatum temporibus placeat iure excepturi aut dicta corrupti nulla sint minus ut,
-                            | quos quis nesciunt eligendi, ipsa dolore perferendis.
-
-block footer
-    include scripts
+    each group, groupIndex in servicesList
+        section(id='scroll-tab-' + groupIndex, class= groupIndex==active ? 'is-active' : '').mdl-layout__tab-panel
+            .content-grid.mdl-grid
+                | test 1
+                each campaign, campaignIndex in group
+                    | test 2
