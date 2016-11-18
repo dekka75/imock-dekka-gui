@@ -11,6 +11,8 @@ var router = express.Router()
 router.get('/', function (req, res, next) {
     var server = req.app.locals.server
     var options = req.app.locals.options
+    var color = ''
+    var key = ''
 
     // Get groups list
     options.uri = server + '/api/services/all'
@@ -20,19 +22,16 @@ router.get('/', function (req, res, next) {
             var groupsList = _.uniq(_.map(groups, 'group'))
             var group = groupsList[0]
 
-            // Group by group / campaign
-            var servicesList = {};
-            groups.forEach(function (currentService) {
-                var group = currentService['group']
-                var campaign = currentService['campaign']
-                if (!servicesList[group]) {
-                    servicesList[group] = []
+            // Cards color
+            _.forEach(groups, function (value) {
+                if (key != value.group + value.campaign) {
+                    key = value.group + value.campaign
+                    color = (color == 'mdl-color--indigo-50') ? 'mdl-color--orange-50' : 'mdl-color--indigo-50'
                 }
-                if (!servicesList[group][campaign]) {
-                    servicesList[group][campaign] = []
-                }
-                servicesList[group][campaign].push(currentService)
+                value.color = color
             })
+
+            var servicesList = _.groupBy(groups, 'group')
 
             res.set('Content-Type', 'text/html; charset=UTF-8')
             res.status(200)

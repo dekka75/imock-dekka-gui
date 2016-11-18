@@ -4,6 +4,27 @@ block content
     each group, groupIndex in servicesList
         section(id='scroll-tab-' + groupIndex, class= groupIndex==active ? 'is-active' : '').mdl-layout__tab-panel
             .content-grid.mdl-grid
-                | test 1
-                each campaign, campaignIndex in group
-                    | test 2
+                each card, j in group
+                    - var real = card.real == '1' ? 'swap_horiz' : 'cached'
+                    .content-column.mdl-cell.mdl-cell--3-col
+                        .mdl-card.mdl-shadow--16dp(class= card.color)
+                            .mdl-card__title
+                                h2.mdl-card__title-text #{card.campaign}
+                            .mdl-card__title
+                                h5.mdl-card__title-text #{card.designation}
+                            .mdl-card__supporting-text
+                                span.producer-label <strong>Producers:</strong>
+                                span.producer-text(id=groupIndex + '-producer' + j) #{card.producer}
+                                    .mdl-tooltip(for=groupIndex + '-producer' + j) #{card.producer}
+                                span.path-label <strong>Path:</strong>
+                                span.path-text(id=groupIndex + '-path' + j) #{card.path}
+                                    .mdl-tooltip(for=groupIndex + '-path' + j)  #{card.path}
+                            .mdl-card__menu
+                                button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
+                                    i.material-icons #{real}
+                            .mdl-card__actions.mdl-card--border
+                                a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
+                                    | View Exchange
+                                .mdl-layout-spacer
+                                button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
+                                    i.material-icons settings
