@@ -3,6 +3,8 @@
 // TO_RUN:         /home/node/nodejs DEBUG=mock:* npm start
 // TO_DEBUG:       console.log(trace.inspect(response, {depth: 1, showHidden: false}))
 
+'use strict'
+
 var debug = require('debug')('imock:gui:app')
 var express = require('express')
 var path = require('path')
@@ -10,8 +12,10 @@ var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 
-var routes = require('./routes/index')
+var dashboard = require('./routes/index')
 var users = require('./routes/users')
+var about = require('./routes/about')
+var viewer = require('./routes/viewer')
 
 var app = express()
 app.disable('etag')
@@ -37,11 +41,11 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
-    //app.use('/public', express.static(path.join(__dirname, 'public')))
-    //app.use('/public/material-design-lite', express.static(path.join(__dirname, 'node_modules/material-design-lite')))
 
-app.use('/', routes)
+app.use('/', dashboard)
+app.use('/viewer', viewer)
 app.use('/users', users)
+app.use('/about', about)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

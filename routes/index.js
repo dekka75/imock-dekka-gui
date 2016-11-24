@@ -1,6 +1,8 @@
 // DESCRIPTION:    Virtual services REST & SOAP
 // MAINTAINER:     Didier Kimès <didier.kimes@gmail.com>
 
+'use strict'
+
 var debug = require('debug')('imock:gui:routes:index')
 var express = require('express')
 var request = require("request")
@@ -17,6 +19,7 @@ router.get('/', function (req, res, next) {
     // Get groups list
     options.uri = server + '/api/services/all'
     request(options, function (err, response, body) {
+        // TODO: Error message
         if (err) {} else {
             var groups = JSON.parse(body)
             var groupsList = _.uniq(_.map(groups, 'group'))
@@ -26,9 +29,12 @@ router.get('/', function (req, res, next) {
             _.forEach(groups, function (value) {
                 if (key != value.group + value.campaign) {
                     key = value.group + value.campaign
-                    color = (color == 'mdl-color--indigo-50') ? 'mdl-color--orange-50' : 'mdl-color--indigo-50'
+                    color = (color == 'mdl-color--accent') ? 'mdl-color--primary' : 'mdl-color--accent'
                 }
                 value.color = color
+                value.inbound = value.path.match(/\/([A-Z-a-z-0-9-_]{3,})\/[A-Z-a-z-0-9-_]{3,}\/.*/)[1]
+                value.outbound = value.path.match(/\/[A-Z-a-z-0-9-_]{3,}\/([A-Z-a-z-0-9-_]{3,})\/.*/)[1]
+                value.path = value.path.match(/\/[A-Z-a-z-0-9-_]{3,}\/[A-Z-a-z-0-9-_]{3,}(\/.*)/)[1]
             })
 
             var servicesList = _.groupBy(groups, 'group')

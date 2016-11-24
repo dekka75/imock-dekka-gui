@@ -7,36 +7,75 @@ body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 
+.mdl-layout__content {
+    background-color: rgba(0, 0, 0, 0.4);
+}
 
-/* Cards */
 
-.mdl-card {
-    float: left;
-    height: 310px;
-    padding: 10px;
+/* Tab */
+
+#dashboard-tab-add {
+    position: absolute;
+    right: 40px;
+    top: 70px;
+    z-index: 999;
+}
+
+
+/* Dashboard */
+
+.dashboard-form-card {
+    height: 380px;
+    margin-bottom: 40px;
+    padding: 0px;
     width: 95%;
 }
 
-.producer-label {
+.dashboard-title-card {
+    height: 100px;
+    padding: 32px;
+    width: 100%;
+}
+
+.dashboard-button-card {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.dashboard-service-label {
+    display: inline-block;
+    height: 40px;
+    width: 23%;
+}
+
+.dashboard-service-text {
+    display: inline-block;
+    height: 20px;
+    width: 77%;
+    white-space: nowrap;
+}
+
+.dashboard-producer-label {
     display: inline-block;
     height: 40px;
     width: 30%;
 }
 
-.producer-text {
+.dashboard-producer-text {
     display: inline-block;
     height: 20px;
     width: 70%;
     white-space: nowrap;
 }
 
-.path-label {
+.dashboard-path-label {
     display: inline-block;
     height: 40px;
     width: 15%;
 }
 
-.path-text {
+.dashboard-path-text {
     display: inline-block;
     height: 20px;
     vertical-align: top;
@@ -44,8 +83,57 @@ body {
     white-space: nowrap;
 }
 
-.mdl-card__actions {
+
+/* Viewer */
+
+.viewer-table {
+    width: 100%;
+}
+
+
+/* Login */
+
+.user-form-card {
     align-items: center;
-    box-sizing: border-box;
-    display: flex;
+    height: 400px;
+    margin-top: 40px;
+    margin-bottom: 80px;
+    padding: 0px;
+    width: 30%;
+}
+
+.user-title-card {
+    height: 100px;
+    padding: 32px;
+    width: 100%;
+}
+
+.user-body-card {
+    height: 220px;
+    padding-left: 20px;
+}
+
+
+/* About */
+
+.about-form-card {
+    align-items: center;
+    height: 400px;
+    margin-top: 40px;
+    margin-bottom: 80px;
+    padding-top: 30px;
+    width: 30%;
+}
+
+.about-title-card {
+    margin-top: 60px;
+    margin-bottom: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.about-text-card {
+    margin: 0px;
+    text-align: center;
+    width: 100%;
 }

@@ -3,17 +3,17 @@
 
 'use strict'
 
-var debug = require('debug')('imock:gui:routes:users')
+var debug = require('debug')('imock:gui:routes:about')
 var express = require('express')
 var request = require("request")
 var router = express.Router()
 
-/* Log in */
+/* About */
 router.get('/', function (req, res, next) {
     res.set('Content-Type', 'text/html; charset=UTF-8')
     res.status(200)
-    res.render('users', {
-        message: 'login',
+    res.render('about', {
+        message: 'about',
         tabs: 'no'
     })
 })
