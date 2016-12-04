@@ -5,11 +5,12 @@ block content
         each group, groupIndex in servicesList
             section(id='scroll-tab-' + groupIndex, class= groupIndex==active ? 'is-active' : '').mdl-layout__tab-panel
                 .content-grid.mdl-grid
-                    each card, j in group
-                        - var real = card.real == '1' ? 'swap_horiz' : 'cached'
+                    each card, i in group
+                        - var color = card.color == '1' ? 'mdl-color--accent' : 'mdl-color--primary'
+                        - var real = card.real == '1' ? 'swap_horiz' : 'autorenew'
                         .content-column.mdl-cell.mdl-cell--3-col
                             .dashboard-form-card.mdl-card.mdl-shadow--16dp
-                                .dashboard-title-card.mdl-card__title.mdl-shadow--2dp.mdl-color-text--white(class= card.color)
+                                .dashboard-title-card.mdl-card__title.mdl-shadow--2dp.mdl-color-text--white(class= color)
                                     h2.mdl-card__title-text #{card.campaign}
                                 .mdl-card__title
                                     h5.mdl-card__title-text #{card.designation}
@@ -17,16 +18,16 @@ block content
                                     span.dashboard-service-label <strong>Service:</strong>
                                     span.dashboard-service-text #{card.outbound} - #{card.name}
                                     span.dashboard-producer-label <strong>Producers:</strong>
-                                    span.dashboard-producer-text(id=groupIndex + '-producer' + j) #{card.producer}
-                                        .mdl-tooltip(for=groupIndex + '-producer' + j) #{card.producer}
+                                    span.dashboard-producer-text(id=groupIndex + '-producer' + i) #{card.producer}
+                                        .mdl-tooltip(for=groupIndex + '-producer' + i) #{card.producer}
                                     span.dashboard-path-label <strong>Path:</strong>
-                                    span.dashboard-path-text(id=groupIndex + '-path' + j) #{card.path}
-                                        .mdl-tooltip(for=groupIndex + '-path' + j)  #{card.path}
+                                    span.dashboard-path-text(id=groupIndex + '-path' + i) #{card.path}
+                                        .mdl-tooltip(for=groupIndex + '-path' + i)  #{card.path}
                                 .mdl-card__menu
                                     button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
                                         i.material-icons #{real}
                                 .dashboard-button-card.mdl-card__actions.mdl-card--border
-                                    a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(class= card.color)
+                                    a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(class= color)
                                         | View Exchange
                                     .mdl-layout-spacer
                                     button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect

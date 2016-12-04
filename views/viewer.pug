@@ -1,83 +1,61 @@
 extends layout
 
 block content
-    .content-column.mdl-cell.mdl-cell--12-col
-        table.viewer-table.mdl-data-table.mdl-js-data-table.mdl-shadow--6dp
-            thead
-                tr
-                    th group
-                    |       
-                    th campaign
-                    |       
-                    th time stamp
-                    |       
-                    th mode
-                    |       
-                    th consumer
-                    |       
-                    th producer
-                    |       
-                    th path
-                    |   
-                    th method
-                    |   
-                    th status
-                    |   
-                    th request
-                    |   
-                    th response
-                    |   
-                    th duration
-                    |   
-            tbody
-                tr
-                    td 10
-                    |       
-                    td 5
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                tr
-                    td 10
-                    |       
-                    td 5
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-                    td 50
-                    |       
-
+    .viewer-content-column.content-column.mdl-cell.mdl-cell--12-col
+        #mdl-table
+            table#mdl-table.viewer-data-table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
+                thead
+                    tr
+                        th.viewer-sorted.mdl-data-table__header--sorted-descending TIME
+                        th
+                            span.viewer-center GROUP
+                        th
+                            span.viewer-center CAMPAIGN
+                        th
+                            span.viewer-center MODE
+                        th
+                            span.viewer-center METHOD
+                        th PRODUCER
+                        th PATH
+                        th
+                            span.viewer-center STATUS
+                        th
+                            span.viewer-center(id='viewer-th.rrp') RRP
+                                .mdl-tooltip(for='viewer-th.rrp') Request Response Pairs   
+                        th
+                            span.viewer-center
+                                i.viewer-material-icons.material-icons timer
+                tbody.list
+                    each rrp, i in rrpList
+                        tr
+                            - var ts = rrp.date.match(/([0-9]{4}-[0-9]{2}-[0-9]{2}) ([0-9]{2}:[0-9]{2}:[0-9]{2}).([0-9]{3})/)
+                            td.date
+                                span.viewer-center
+                                    span.wiever-span-date #{ts[1]}&nbsp
+                                    span.wiever-span-time #{ts[2]}
+                                    | &nbsp
+                                    span.wiever-span-micro #{ts[3]}
+                            td.group
+                                span.viewer-center #{rrp.group}
+                            td.campaign 
+                                span.viewer-center #{rrp.campaign}
+                            td
+                                span.viewer-center
+                                    if rrp.mode == 0
+                                        i.viewer-material-icons.material-icons autorenew
+                                    else
+                                        i.viewer-material-icons.material-icons swap_horiz
+                            td.method
+                                span.viewer-center.mdl-shadow--2dp(class= 'viewer-method-' + rrp.method.toLowerCase()) 
+                                    | #{rrp.method}
+                            td.producer #{rrp.producer}
+                            td.path #{rrp.path}
+                            td.status
+                                span.viewer-center.mdl-shadow--2dp(class= 'viewer-status-' + rrp.status.substr(0,1) + '00') 
+                                    | #{rrp.status}
+                            td 
+                                span.viewer-center 
+                                    button.mdl-button.mdl-button--icon.mdl-js-ripple-effect
+                                        i.material-icons dehaze
+                            td.duration 
+                                span.viewer-center #{rrp.duration}

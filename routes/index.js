@@ -13,7 +13,7 @@ var router = express.Router()
 router.get('/', function (req, res, next) {
     var server = req.app.locals.server
     var options = req.app.locals.options
-    var color = ''
+    var color = 0
     var key = ''
 
     // Get groups list
@@ -25,11 +25,11 @@ router.get('/', function (req, res, next) {
             var groupsList = _.uniq(_.map(groups, 'group'))
             var group = groupsList[0]
 
-            // Cards color
+            // Add properties colors, ...
             _.forEach(groups, function (value) {
                 if (key != value.group + value.campaign) {
                     key = value.group + value.campaign
-                    color = (color == 'mdl-color--accent') ? 'mdl-color--primary' : 'mdl-color--accent'
+                    color = (color == 0) ? 1 : 0
                 }
                 value.color = color
                 value.inbound = value.path.match(/\/([A-Z-a-z-0-9-_]{3,})\/[A-Z-a-z-0-9-_]{3,}\/.*/)[1]
@@ -44,6 +44,8 @@ router.get('/', function (req, res, next) {
             res.render('index', {
                 name: 'iMock',
                 title: 'Virtual Services',
+                search: true,
+                tabs: true,
                 active: group,
                 groupsList: groupsList,
                 servicesList: servicesList

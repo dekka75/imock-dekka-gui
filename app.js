@@ -13,9 +13,9 @@ var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 
 var dashboard = require('./routes/index')
+var viewer = require('./routes/viewer')
 var users = require('./routes/users')
 var about = require('./routes/about')
-var viewer = require('./routes/viewer')
 
 var app = express()
 app.disable('etag')

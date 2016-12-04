@@ -13,8 +13,11 @@ router.get('/', function (req, res, next) {
     res.set('Content-Type', 'text/html; charset=UTF-8')
     res.status(200)
     res.render('users', {
-        message: 'login',
-        tabs: 'no'
+        name: 'iMock',
+        title: 'Virtual Services',
+        search: false,
+        tabs: false,
+        message: 'login'
     })
 })
 
