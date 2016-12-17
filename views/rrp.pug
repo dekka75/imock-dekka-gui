@@ -1,0 +1,101 @@
+// Form response request pairs
+.rrp-card.mdl-card.mdl-shadow--6dp
+    // Title
+    .rrp-card-title.mdl-card__title.mdl-shadow--2dp.mdl-color--accent.mdl-color-text--white
+        h2.rrp-left-50.mdl-card__title-text Request response pairs
+        span.rrp-right-50
+            i.rrp-material-icons.material-icons autorenew
+    .rrp-card-subtitle.mdl-card__title
+        h5.rrp-left-100.mdl-card__title-text BEHAT&nbsp-&nbspDefault
+        span.rrp-right-60px
+            span.viewer-status.viewer-status-400.mdl-shadow--2dp.viewer-center 404
+    // Body 
+    .mdl-card__supporting-text.rrp-card-supporting-text
+        .rrp-card-body
+            // Time
+            span.rrp-left-80px.mdl-color-text--primary Time:
+            span 2016-11-25&nbsp
+            span.viewer-span-time 20:50:30
+            span
+                | &nbsp
+                span 467                        
+                span.rrp-spacer
+            // Path
+            span.rrp-left-80px
+                span.viewer-method-post.mdl-shadow--2dp.viewer-center POST
+            span http://192.168.56.102:8080/INBound/OUTBound/SOAP
+            span.rrp-spacer
+            // Request headers
+            table.mdl-data-table.rrp-table.mdl-js-data-table.mdl-shadow--2dp
+                thead
+                    tr
+                        th.mdl-data-table__cell--non-numeric Request headers
+                        th
+                            .rrp-table-right
+                                button.rrp-button-table.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
+                                    i.material-icons keyboard_arrow_down
+                tbody.rrp-body-hide
+                    tr
+                        td.mdl-data-table__cell--non-numeric accept-encoding
+                        td.mdl-data-table__cell--non-numeric gzip, deflate
+                    tr
+                        td.mdl-data-table__cell--non-numeric user-agent
+                        td.mdl-data-table__cell--non-numeric node-superagent/2.3.0
+                    tr
+                        td.mdl-data-table__cell--non-numeric content-type
+                        td.mdl-data-table__cell--non-numeric application/json; charset=UTF-8
+            span.rrp-spacer
+            // Response headers
+            table.mdl-data-table.rrp-table.mdl-js-data-table.mdl-shadow--2dp
+                thead
+                    tr
+                        th.mdl-data-table__cell--non-numeric Response headers
+                        th
+                            .rrp-table-right
+                                button.rrp-button-table.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
+                                    i.material-icons keyboard_arrow_down
+                tbody.rrp-body-hide
+                    tr
+                        td.mdl-data-table__cell--non-numeric accept-encoding
+                        td.mdl-data-table__cell--non-numeric gzip, deflate
+            span.rrp-spacer
+            // Request
+            table.mdl-data-table.rrp-table.mdl-js-data-table.mdl-shadow--2dp
+                thead
+                    tr
+                        th.mdl-data-table__cell--non-numeric Request
+                        th
+                            .rrp-table-right
+                                button.rrp-button-table.rrp-code.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
+                                    i.material-icons keyboard_arrow_down
+                tbody.rrp-body-hide
+                    tr
+                        td(colspan='2')
+                                pre
+                                    code.xml
+                                        | <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://www.orange.com/rbq/g3/soap/v2-0123456789">
+                                        | <soapenv:Header/>
+                                        | <soapenv:Body>
+                                        | <v2:SOAP><credential><id>6</id></credential></v2:SOAP>
+                                        | </soapenv:Body>
+                                        | </soapenv:Envelope>
+            span.rrp-spacer
+            // Response
+            table.mdl-data-table.rrp-table.mdl-js-data-table.mdl-shadow--2dp
+                thead
+                    tr
+                        th.mdl-data-table__cell--non-numeric Response
+                        th
+                            .rrp-table-right
+                                button.rrp-button-table.rrp-code.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
+                                    i.material-icons keyboard_arrow_down
+                tbody.rrp-body-hide
+                    tr
+                        td(colspan='2')
+            span.rrp-spacer
+            span.rrp-spacer
+        .rrp-button-close.mdl-card__actions.mdl-card--border
+            .mdl-layout-spacer
+            a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent(class= color)
+                | Closed
+

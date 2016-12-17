@@ -4,7 +4,7 @@ header.mdl-layout__header
         span.mdl-layout-title #{title}
         .mdl-layout-spacer
         nav.mdl-navigation
-            a.mdl-navigation__link(href='/') Dashboad
+            a.mdl-navigation__link(href='/') Dashboard
             a.mdl-navigation__link(href='/viewer') Viewer
             a.mdl-navigation__link(href='/users') Admin             
             a.mdl-navigation__link(href='/about') About
@@ -20,7 +20,7 @@ header.mdl-layout__header
         .mdl-layout__tab-bar.mdl-js-ripple-effect
             each group, i in groupsList
                 a.mdl-layout__tab(href='#scroll-tab-' + group, class= (group==active) ? 'is-active' : '') #{group}
-        button#dashboard-tab-add.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored.mdl-shadow--4dp.mdl-color--accent
+        button#dashboard-add-service.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored.mdl-shadow--4dp.mdl-color--accent
             i.material-icons(role='presentation') add
             span.visuallyhidden Add
             span.mdl-button__ripple-container
@@ -33,6 +33,6 @@ header.mdl-layout__header
 .mdl-layout__drawer
     span.mdl-layout-title #{name}
     nav.mdl-navigation
-        a.mdl-navigation__link(href='/') Dashboad
+        a.mdl-navigation__link(href='/') Dashboard
         a.mdl-navigation__link(href='/viewer') Viewer
         a.mdl-navigation__link(href='/about') About

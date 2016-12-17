@@ -41,7 +41,7 @@ router.get('/', function (req, res, next) {
 
             res.set('Content-Type', 'text/html; charset=UTF-8')
             res.status(200)
-            res.render('index', {
+            res.render('dashboard', {
                 name: 'iMock',
                 title: 'Virtual Services',
                 search: true,

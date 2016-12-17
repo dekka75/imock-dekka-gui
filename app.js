@@ -12,7 +12,7 @@ var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 
-var dashboard = require('./routes/index')
+var dashboard = require('./routes/dashboard')
 var viewer = require('./routes/viewer')
 var users = require('./routes/users')
 var about = require('./routes/about')
