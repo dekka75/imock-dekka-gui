@@ -1,6 +1,79 @@
 extends layout
 
 block content
+    span.details-hide
+        .details-content-meta
+            // Response
+            table.mdl-data-table.details-data-table.mdl-js-data-table.mdl-shadow--2dp
+                thead
+                    tr
+                        th.mdl-data-table__cell--non-numeric Response
+                        th
+                            .details-table-right
+                                button.details-button-table.details-code.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
+                                    i.material-icons keyboard_arrow_down
+                tbody.details-body-hide
+                    tr
+                        td(colspan='2')
+
+            // Request
+            table.mdl-data-table.details-data-table.mdl-js-data-table.mdl-shadow--2dp
+                thead
+                    tr
+                        th.mdl-data-table__cell--non-numeric Request
+                        th
+                            .details-table-right
+                                button.details-button-table.details-code.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
+                                    i.material-icons keyboard_arrow_down
+                tbody.details-body-hide
+                    tr
+                        td.details-td(colspan='2')
+                            content.details-body-hide
+                                | <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://www.orange.com/rbq/g3/soap/v2-0123456789">
+                                | <soapenv:Header/>
+                                | <soapenv:Body>
+                                | <v2:SOAP><credential><id>6</id></credential></v2:SOAP>
+                                | </soapenv:Body>
+                                | </soapenv:Envelope>
+                            pre.details-pre
+                                code.xml
+
+            span.details-headers-left
+                // Request headers
+                table.mdl-data-table.details-data-table.mdl-js-data-table.mdl-shadow--2dp
+                    thead
+                        tr
+                            th.mdl-data-table__cell--non-numeric Request headers
+                            th
+                                .details-table-right
+                                    button.details-button-table.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
+                                        i.material-icons keyboard_arrow_down
+                    tbody.details-body-hide
+                        tr
+                            td.mdl-data-table__cell--non-numeric accept-encoding
+                            td.mdl-data-table__cell--non-numeric gzip, deflate
+                        tr
+                            td.mdl-data-table__cell--non-numeric user-agent
+                            td.mdl-data-table__cell--non-numeric node-superagent/2.3.0
+                        tr
+                            td.mdl-data-table__cell--non-numeric content-type
+                            td.mdl-data-table__cell--non-numeric application/json; charset=UTF-8
+
+            span.details-headers-right
+                // Response headers
+                table.mdl-data-table.details-data-table.mdl-js-data-table.mdl-shadow--2dp
+                    thead
+                        tr
+                            th.mdl-data-table__cell--non-numeric Response headers
+                            th
+                                .details-table-right
+                                    button.details-button-table.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
+                                        i.material-icons keyboard_arrow_down
+                    tbody.details-body-hide
+                        tr
+                            td.mdl-data-table__cell--non-numeric accept-encoding
+                            td.mdl-data-table__cell--non-numeric gzip, deflate
+
     .viewer-content-column.content-column.mdl-cell.mdl-cell--12-col
         #mdl-table
             table#mdl-table.viewer-data-table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
@@ -23,8 +96,8 @@ block content
                             span.viewer-center
                                 i.viewer-material-icons.material-icons timer
                         th
-                            span.viewer-center(id='viewer-th.rrp') RRP
-                                .mdl-tooltip(for='viewer-th.rrp') Request Response Pairs   
+                            span.viewer-center(id='viewer-th.rrp') DETAILS
+                                .mdl-tooltip(for='viewer-th.rrp') Headers and Request Response Pairs   
                 tbody.list
                     each rrp, i in rrpList
                         tr
@@ -60,72 +133,38 @@ block content
                                     button.viewer-button-open.mdl-button.mdl-js-button.mdl-button--icon(id=i)
                                         i.material-icons keyboard_arrow_down
 
-                        // Hide
-                        tr.viewer-hide(class= 'viewer-code-' + i)
-                            td(colspan='10')
-                                span.rrp-headers-left
-                                    // Request headers
-                                    table.mdl-data-table.rrp-table.mdl-js-data-table.mdl-shadow--2dp
-                                        thead
-                                            tr
-                                                th.mdl-data-table__cell--non-numeric Request headers
-                                                th
-                                                    .rrp-table-right
-                                                        button.rrp-button-table.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
-                                                            i.material-icons keyboard_arrow_down
-                                        tbody.rrp-body-hide
-                                            tr
-                                                td.mdl-data-table__cell--non-numeric accept-encoding
-                                                td.mdl-data-table__cell--non-numeric gzip, deflate
-                                            tr
-                                                td.mdl-data-table__cell--non-numeric user-agent
-                                                td.mdl-data-table__cell--non-numeric node-superagent/2.3.0
-                                            tr
-                                                td.mdl-data-table__cell--non-numeric content-type
-                                                td.mdl-data-table__cell--non-numeric application/json; charset=UTF-8
-                                span.rrp-headers-right
-                                    // Response headers
-                                    table.mdl-data-table.rrp-table.mdl-js-data-table.mdl-shadow--2dp
-                                        thead
-                                            tr
-                                                th.mdl-data-table__cell--non-numeric Response headers
-                                                th
-                                                    .rrp-table-right
-                                                        button.rrp-button-table.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
-                                                            i.material-icons keyboard_arrow_down
-                                        tbody.rrp-body-hide
-                                            tr
-                                                td.mdl-data-table__cell--non-numeric accept-encoding
-                                                td.mdl-data-table__cell--non-numeric gzip, deflate
-                                // Request
-                                table.mdl-data-table.rrp-table.mdl-js-data-table.mdl-shadow--2dp
-                                    thead
-                                        tr
-                                            th.mdl-data-table__cell--non-numeric Request
-                                            th
-                                                .rrp-table-right
-                                                    button.rrp-button-table.rrp-code.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
-                                                        i.material-icons keyboard_arrow_down
-                                    tbody.rrp-body-hide
-                                        tr
-                                            td(colspan='2')
-                                                    pre
-                                                        code.xml
-                                                            | <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://www.orange.com/rbq/g3/soap/v2-0123456789">
-                                                            | <soapenv:Header/>
-                                                            | <soapenv:Body>
-                                                            | <v2:SOAP><credential><id>6</id></credential></v2:SOAP>
-                                                            | </soapenv:Body>
-                                                            | </soapenv:Envelope>
-                                // Response
-                                table.mdl-data-table.rrp-table.mdl-js-data-table.mdl-shadow--2dp
-                                    thead
-                                        tr
-                                            th.mdl-data-table__cell--non-numeric Response
-                                            th
-                                                .rrp-table-right
-                                                    button.rrp-button-table.rrp-code.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
-                                                        i.material-icons keyboard_arrow_down
-                                    tbody.rrp-body-hide
-                                        tr
-                                            td(colspan='2')
+                        // Details hide
+                        tr.details-hide(class= 'details-content-' + i)
+                            - var ts = rrp.date.match(/([0-9]{4}-[0-9]{2}-[0-9]{2}) ([0-9]{2}:[0-9]{2}:[0-9]{2}).([0-9]{3})/)
+                            td.date.details-hide
+                                span.viewer-center
+                                    span #{ts[1]}&nbsp
+                                    span.viewer-span-time #{ts[2]}
+                                    | &nbsp
+                                    span #{ts[3]}
+                            td.group.details-hide
+                                span.viewer-center #{rrp.group}
+                            td.campaign.details-hide 
+                                span.viewer-center #{rrp.campaign}
+                            td.details-hide
+                                span.viewer-center
+                                    if rrp.mode == 0
+                                        i.viewer-material-icons.material-icons autorenew
+                                    else
+                                        i.viewer-material-icons.material-icons swap_horiz
+                            td.method.details-hide
+                                span.viewer-center.mdl-shadow--2dp(class= 'viewer-method-' + rrp.method.toLowerCase()) 
+                                    | #{rrp.method}
+                            td.producer.details-hide #{rrp.producer}
+                            td.path.details-hide #{rrp.path}
+                            td.status.details-hide
+                                span.viewer-center.mdl-shadow--2dp(class= 'viewer-status-' + rrp.status.substr(0,1) + '00') 
+                                    | #{rrp.status}
+                            td.duration.details-hide 
+                                span.viewer-center #{rrp.duration}
+                            td.details-hide
+                                span.viewer-center 
+                                    button.viewer-button-open.mdl-button.mdl-js-button.mdl-button--icon(id=i)
+                                        i.material-icons keyboard_arrow_down
+                            td#details(colspan='10')
+                                .details-content

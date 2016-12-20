@@ -23,6 +23,7 @@ $(function () {
     $('.dashboard-button-mode').on('click', function (e) {
         if ($(this).children('i').html() == 'autorenew') {
             $(this).children('i').html('swap_horiz')
+
         } else {
             $(this).children('i').html('autorenew')
         }
@@ -36,6 +37,7 @@ $(function () {
             documentTable.sort('date', {
                 order: "desc"
             })
+
         } else {
             $(this).removeClass('mdl-data-table__header--sorted-descending')
             $(this).addClass('mdl-data-table__header--sorted-ascending')
@@ -47,36 +49,45 @@ $(function () {
 
     /* Request response pairs */
     $('.viewer-button-open').on('click', function (e) {
-        var id = '.viewer-code-' + $(this).attr('id')
+        var content = $('.details-content-' + $(this).attr('id'))
         if ($(this).children('i').html() == 'keyboard_arrow_up') {
             $(this).children('i').html('keyboard_arrow_down')
-            $(id).addClass('viewer-hide')
+            content.addClass('details-hide')
+            content.find('td#details>.details-content').remove()
+
         } else {
             $(this).children('i').html('keyboard_arrow_up')
-            $(id).removeClass('viewer-hide')
+            content.find('td>.details-content').remove()
+            content.find('td#details').append($('.details-content-meta').clone())
+            content.find('td#details>.details-content-meta').addClass('details-content').removeClass('details-content-meta')
+            content.find('.details-button-table').bind('click', detailsButtonTable)
+            content.removeClass('details-hide')
+            $(this).show()
         }
     })
 
-    $('.rrp-button-table').on('click', function (e) {
+    function detailsButtonTable() {
         var tbody = $(this).parent().parent().parent().parent().parent().children('tbody')
         if ($(this).children('i').html() == 'keyboard_arrow_up') {
             $(this).children('i').html('keyboard_arrow_down')
-            tbody.addClass('rrp-body-hide')
+            tbody.addClass('details-body-hide')
+
         } else {
             $(this).children('i').html('keyboard_arrow_up')
-            tbody.removeClass('rrp-body-hide')
-            if ($(this).hasClass('rrp-code')) {
-                var xml = tbody.find('tr>td>pre>code.xml')
-                var esc = _.escape(xml.html())
-                if (esc != '') {
-                    xml.html(esc)
-                    hljs.highlightBlock(xml);
+            tbody.removeClass('details-body-hide')
+
+            if ($(this).hasClass('details-code')) {
+                var body = _.escape(tbody.find('tr>td>content').html())
+                if (body != '') {
+                    var code = tbody.find('tr>td>pre>code')
+                    code.html(body)
+                    code.each(function (i, block) {
+                        hljs.highlightBlock(block);
+                    })
                 }
             }
         }
-    })
-
-    $('.rrp-button-close').on('click', function (e) {})
+    }
 
 })
 
