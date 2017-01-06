@@ -1,0 +1,40 @@
+/**
+ * Copyright © 2016 Dekka Inc. All Rights Reserved.
+ */
+
+
+/* Details */
+
+.details-hide {
+    display: none;
+}
+
+.details-data-table {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.details-right {
+    text-align: right;
+}
+
+.details-pre {
+    margin: 0px;
+}
+
+.details-body-hide {
+    display: none;
+}
+
+.details-headers-left {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+}
+
+.details-headers-right {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 1%;
+    width: 49%;
+}

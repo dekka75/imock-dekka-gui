@@ -1,0 +1,35 @@
+/**
+ * Copyright © 2016 Dekka Inc. All Rights Reserved.
+ */
+
+
+/* User */
+
+.user-card {
+    align-items: center;
+    height: 400px;
+    margin-top: 40px;
+    margin-bottom: 80px;
+    padding: 0px;
+    width: 320px;
+}
+
+.user-title {
+    height: 100px;
+    padding: 35px;
+    width: 100%;
+}
+
+.user-body {
+    padding: 0px;
+}
+
+.user-text {
+    height: 220px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.user-button {
+    margin-top: 10px;
+}

@@ -20,7 +20,7 @@ $(function () {
     })
 
     /* Dashboard */
-    $('.dashboard-button-mode').on('click', function (e) {
+    $('.dashboard-js-mode').on('click', function (e) {
         if ($(this).children('i').html() == 'autorenew') {
             $(this).children('i').html('swap_horiz')
 
@@ -29,8 +29,12 @@ $(function () {
         }
     })
 
+    $('.dashboard-js-settings').on('click', function (e) {
+        $('.dashboard-service').removeClass('dashboard-hide')
+    })
+
     /* Viewer */
-    $('.viewer-sorted').on('click', function (e) {
+    $('.viewer-js-sorted').on('click', function (e) {
         if ($(this).hasClass('mdl-data-table__header--sorted-ascending')) {
             $(this).removeClass('mdl-data-table__header--sorted-ascending')
             $(this).addClass('mdl-data-table__header--sorted-descending')
@@ -48,7 +52,7 @@ $(function () {
     })
 
     /* Request response pairs */
-    $('.viewer-button-open').on('click', function (e) {
+    $('.viewer-js-button-open').on('click', function (e) {
         var content = $('.details-content-' + $(this).attr('id'))
         if ($(this).children('i').html() == 'keyboard_arrow_up') {
             $(this).children('i').html('keyboard_arrow_down')
@@ -60,13 +64,11 @@ $(function () {
             content.find('td>.details-content').remove()
             content.find('td#details').append($('.details-content-meta').clone())
             content.find('td#details>.details-content-meta').addClass('details-content').removeClass('details-content-meta')
-            content.find('.details-button-table').bind('click', detailsButtonTable)
             content.removeClass('details-hide')
-            $(this).show()
         }
     })
 
-    function detailsButtonTable() {
+    $('body').on('click', '.details-js-button-table', function (e) {
         var tbody = $(this).parent().parent().parent().parent().parent().children('tbody')
         if ($(this).children('i').html() == 'keyboard_arrow_up') {
             $(this).children('i').html('keyboard_arrow_down')
@@ -77,7 +79,7 @@ $(function () {
             tbody.removeClass('details-body-hide')
 
             if ($(this).hasClass('details-code')) {
-                var body = _.escape(tbody.find('tr>td>content').html())
+                var body = _.escape(formatXml(tbody.find('tr>td>content').html()))
                 if (body != '') {
                     var code = tbody.find('tr>td>pre>code')
                     code.html(body)
@@ -87,7 +89,8 @@ $(function () {
                 }
             }
         }
-    }
+        $(this).blur()
+    })
 
 })
 

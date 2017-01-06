@@ -2,6 +2,9 @@
  * Copyright © 2016 Dekka Inc. All Rights Reserved.
  */
 
+
+/* Global */
+
 html,
 body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
@@ -14,6 +17,11 @@ body {
 .mdl-data-table th,
 td {
     text-align: left !important;
+}
+
+.hljs {
+    padding: 0;
+    background: none;
 }
 
 * {
@@ -47,247 +55,4 @@ td {
     background-color: #ff0000 !important;
     left: 0;
     z-index: 1;
-}
-
-
-/* Dashboard */
-
-#dashboard-add-service {
-    position: absolute;
-    right: 40px;
-    top: 70px;
-    z-index: 999;
-}
-
-.dashboard-card {
-    height: 380px;
-    margin-bottom: 40px;
-    padding: 0px;
-    width: 95%;
-}
-
-.dashboard-title-card {
-    height: 100px;
-    padding: 35px;
-    width: 100%;
-}
-
-.dashboard-text {
-    width: 95%;
-}
-
-.dashboard-label-service {
-    display: inline-block;
-    height: 40px;
-    width: 23%;
-}
-
-.dashboard-text-service {
-    display: inline-block;
-    height: 20px;
-    width: 77%;
-    white-space: nowrap;
-}
-
-.dashboard-label-producer {
-    display: inline-block;
-    height: 40px;
-    width: 30%;
-}
-
-.dashboard-text-producer {
-    display: inline-block;
-    height: 20px;
-    width: 70%;
-    white-space: nowrap;
-}
-
-.dashboard-label-path {
-    display: inline-block;
-    height: 40px;
-    width: 15%;
-}
-
-.dashboard-text-path {
-    display: inline-block;
-    height: 20px;
-    vertical-align: top;
-    width: 85%;
-    white-space: nowrap;
-}
-
-.dashboard-button-modify {
-    align-items: center;
-    box-sizing: border-box;
-    display: flex !important;
-}
-
-
-/* Viewer */
-
-.viewer-content-column {
-    margin-bottom: 20px;
-    margin-left: 5px;
-    margin-top: 10px;
-    min-height: 95% !important;
-}
-
-.viewer-data-table {
-    width: 100%;
-}
-
-.viewer-center {
-    display: block;
-    text-align: center;
-}
-
-.viewer-material-icons {
-    vertical-align: -25%;
-}
-
-.viewer-span-time {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.viewer-method-post {
-    background-color: #13c20f;
-    color: #ffffff;
-    height: 25px;
-    padding-top: 3px;
-    width: 60px;
-}
-
-.viewer-method-put {
-    background-color: #ff9000;
-    color: #ffffff;
-    height: 25px;
-    padding-top: 3px;
-    width: 60px;
-}
-
-.viewer-method-delete {
-    background-color: #e30012;
-    color: #ffffff;
-    height: 25px;
-    padding-top: 3px;
-    width: 60px;
-}
-
-.viewer-method-get {
-    background-color: #2392f7;
-    color: #ffffff;
-    height: 25px;
-    padding-top: 3px;
-    width: 60px;
-}
-
-.viewer-status-200 {
-    background-color: #13c20f;
-    color: #ffffff;
-    height: 25px;
-    padding-top: 3px;
-    width: 60px;
-}
-
-.viewer-status-400 {
-    background-color: #f39822;
-    color: #ffffff;
-    height: 25px;
-    padding-top: 3px;
-    width: 60px;
-}
-
-.viewer-status-500 {
-    background-color: #d40011;
-    color: #ffffff;
-    height: 25px;
-    padding-top: 3px;
-    width: 60px;
-}
-
-.hljs {
-    padding: 0;
-    background: none;
-}
-
-.details-hide {
-    display: none;
-}
-
-.details-data-table {
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.details-pre {
-    margin: 0px;
-}
-
-.details-body-hide {
-    display: none;
-}
-
-.details-table-right {
-    text-align: right;
-}
-
-.details-headers-left {
-    display: inline-block;
-    vertical-align: top;
-    width: 50%;
-}
-
-.details-headers-right {
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 1%;
-    width: 49%;
-}
-
-
-/* Login */
-
-.user-card {
-    align-items: center;
-    height: 400px;
-    margin-top: 40px;
-    margin-bottom: 80px;
-    padding: 0px;
-    width: 30%;
-}
-
-.user-card-title {
-    height: 100px;
-    padding: 32px;
-    width: 100%;
-}
-
-.user-card-body {
-    height: 220px;
-    padding-left: 20px;
-}
-
-
-/* About */
-
-.about-card {
-    align-items: center;
-    height: 400px;
-    margin-top: 40px;
-    margin-bottom: 80px;
-    padding-top: 30px;
-    width: 30%;
-}
-
-.about-card-title {
-    margin-top: 60px;
-    margin-bottom: 0px;
-    text-align: center;
-    width: 100%;
-}
-
-.about-card-text {
-    margin: 0px;
-    text-align: center;
-    width: 100%;
 }

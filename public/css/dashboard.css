@@ -1,0 +1,73 @@
+/**
+ * Copyright © 2016 Dekka Inc. All Rights Reserved.
+ */
+
+
+/* Dashboard */
+
+#dashboard-add-service {
+    position: absolute;
+    right: 40px;
+    top: 65px;
+    z-index: 999;
+}
+
+.dashboard-hide {
+    display: none;
+}
+
+.dashboard-spacer {
+    width: 100%;
+}
+
+.dashboard-service {
+    height: 300px;
+}
+
+.dashboard-card {
+    margin-bottom: 30px;
+    padding: 0px;
+    width: 300px;
+}
+
+.dashboard-title {
+    height: 100px;
+    padding: 37px;
+    width: 100%;
+}
+
+.dashboard-menu {
+    top: 32px
+}
+
+.dashboard-sub-title {
+    padding-left: 25px;
+    padding-bottom: 8px;
+}
+
+.dashboard-body {
+    padding-left: 25px;
+    width: 95% !important;
+}
+
+.dashboard-label {
+    display: inline-block;
+    height: 40px;
+    width: 30%;
+}
+
+.dashboard-text {
+    display: inline-block;
+    height: 40px;
+    white-space: nowrap;
+    width: 70%;
+}
+
+.dashboard-button {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex !important;
+    height: 70px;
+    margin-left: 8px;
+    width: 95%;
+}

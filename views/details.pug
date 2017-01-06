@@ -1,0 +1,72 @@
+// Details
+span.details-hide
+    .details-content-meta
+        // Response
+        table.mdl-data-table.details-data-table.mdl-js-data-table.mdl-shadow--2dp
+            thead
+                tr
+                    th.mdl-data-table__cell--non-numeric Response
+                    th
+                        .details-right
+                            button.details-js-button-table.details-code.mdl-button.mdl-js-button.mdl-button--primary.mdl-button--icon
+                                i.material-icons keyboard_arrow_down
+            tbody.details-body-hide
+                tr
+                    td(colspan='2')
+                        content.details-body-hide
+                            | <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.orange.com/rbq/g3/soap/v2"><SOAP-ENV:Header></SOAP-ENV:Header><SOAP-ENV:Body><ns1:SOAP><data><id>5</id><first_name>Orson</first_name><last_name>Scott gard</last_name><Label>HAL-064684296</Label></data></ns1:SOAP></SOAP-ENV:Body></SOAP-ENV:Envelope>                        
+                        pre.details-pre
+                            code.xml
+
+        // Request
+        table.mdl-data-table.details-data-table.mdl-js-data-table.mdl-shadow--2dp
+            thead
+                tr
+                    th.mdl-data-table__cell--non-numeric Request
+                    th
+                        .details-right
+                            button.details-js-button-table.details-code.mdl-button.mdl-js-button.mdl-button--primary.mdl-button--icon
+                                i.material-icons keyboard_arrow_down
+            tbody.details-body-hide
+                tr
+                    td(colspan='2')
+                        content.details-body-hide
+                            | <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://www.orange.com/rbq/g3/soap/v2-0123456789"><soapenv:Header/><soapenv:Body><v2:SOAP><credential><id>6</id></credential></v2:SOAP></soapenv:Body></soapenv:Envelope>
+                        pre.details-pre
+                            code.xml
+
+        span.details-headers-left
+            // Request headers
+            table.mdl-data-table.details-data-table.mdl-js-data-table.mdl-shadow--2dp
+                thead
+                    tr
+                        th.mdl-data-table__cell--non-numeric Request headers
+                        th
+                            .details-right
+                                button.details-js-button-table.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
+                                    i.material-icons keyboard_arrow_down
+                tbody.details-body-hide
+                    tr
+                        td.mdl-data-table__cell--non-numeric accept-encoding
+                        td.mdl-data-table__cell--non-numeric gzip, deflate
+                    tr
+                        td.mdl-data-table__cell--non-numeric user-agent
+                        td.mdl-data-table__cell--non-numeric node-superagent/2.3.0
+                    tr
+                        td.mdl-data-table__cell--non-numeric content-type
+                        td.mdl-data-table__cell--non-numeric application/json; charset=UTF-8
+
+        span.details-headers-right
+            // Response headers
+            table.mdl-data-table.details-data-table.mdl-js-data-table.mdl-shadow--2dp
+                thead
+                    tr
+                        th.mdl-data-table__cell--non-numeric Response headers
+                        th
+                            .details-right
+                                button.details-js-button-table.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--primary
+                                    i.material-icons keyboard_arrow_down
+                tbody.details-body-hide
+                    tr
+                        td.mdl-data-table__cell--non-numeric accept-encoding
+                        td.mdl-data-table__cell--non-numeric gzip, deflate
